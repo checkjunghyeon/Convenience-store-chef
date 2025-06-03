@@ -67,7 +67,7 @@ Doosan BootCamp 협동-1의 Final Project로, **Doosan Robot M0609**를 활용�
 
 <br>
 
-## 시연 영상/스크린샷
+## 🎬 시연 영상/스크린샷
 - 사용자가 이해하기 쉬운 시각 자료(.gif)
 
 <br>
@@ -91,17 +91,17 @@ Doosan BootCamp 협동-1의 Final Project로, **Doosan Robot M0609**를 활용�
 
 <br>
 
-## 🧾 버전 정보
+## ✅ 버전 정보
 - V1.0 (2025.06.05): 초기 프로토타입 완료 및 기능 구현
 
 <br>
 
-## To-do List
+## 📋 To-do List
 - 이후 개발 계획이
 - 미완성 기능
 
 <br>
 
-## Known Issues
+## 🐞 Known Issues
 - 아직 해결되지 않은 문제
 
