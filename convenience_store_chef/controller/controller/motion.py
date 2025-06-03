@@ -324,6 +324,7 @@ class MotionController:
         self.movec(posx_paths[4], posx_paths[5], vel=VELOCITY, acc=ACC)
         self.movej([0, 0, 0, 0, 0, 90], vel=VELOCITY, acc=ACC, mod=self.DR_MV_MOD_REL)
         
+        # self.amove_periodic(amp=[0, 0, 0, 0, 0, 5.0], repeat=3, atime=0.5, period=1.0, ref=self.DR_TOOL)
         self.movesj(posj_paths, vel=VELOCITY, acc=ACC)
         
         self.release()
