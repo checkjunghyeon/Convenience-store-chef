@@ -7,7 +7,7 @@ Doosan BootCamp 협동-1의 Final Project로, **Doosan Robot M0609**를 활용�
 ---
 
 ## 📅 개발 기간
-2025년 XX월 ~ 2025년 XX월 (총 X주)
+2025년 5월 30일 ~ 2025년 6월 5일(총 1주)
 
 <br>
 
