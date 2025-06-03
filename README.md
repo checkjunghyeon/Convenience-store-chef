@@ -35,7 +35,7 @@ Doosan BootCamp 협동-1의 Final Project로, **Doosan Robot M0609**를 활용�
 - 자동화된 조리 단계 시퀀스 실행
 
 ## 🧩 설치 방법
-1. 프로젝트를 클론합니다:
+프로젝트를 클론:
 
     ```bash
     git clone https://github.com/afleejw/Convenience-store-chef.git
