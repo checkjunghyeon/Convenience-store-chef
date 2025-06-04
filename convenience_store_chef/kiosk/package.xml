@@ -7,6 +7,9 @@
   <maintainer email="leejinwon@todo.todo">leejinwon</maintainer>
   <license>TODO: License declaration</license>
 
+  <depend>rclpy</depend>
+  <depend>convenience_store_chef_interfaces</depend>
+
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>

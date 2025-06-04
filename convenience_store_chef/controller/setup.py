@@ -1,6 +1,8 @@
 from setuptools import find_packages, setup
+import glob
+import os
 
-package_name = 'kiosk'
+package_name = 'controller'
 
 setup(
     name=package_name,
@@ -10,6 +12,7 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        ('share/' + package_name + '/resource', glob.glob(os.path.join('resource', '*.json')))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -20,6 +23,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'tm = controller.task_manager:main',
+            'motion = controller.motion:main',
         ],
     },
 )

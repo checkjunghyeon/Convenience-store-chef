@@ -1,6 +1,6 @@
 import rclpy
 from rclpy.node import Node
-from Convenience_store_chef_msgs.srv import OrderService
+from convenience_store_chef_msgs.srv import OrderService
 
 class OrderServer(Node):
     def __init__(self):

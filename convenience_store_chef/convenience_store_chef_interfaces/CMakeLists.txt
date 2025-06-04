@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(Convenience_store_chef_msgs)
+project(convenience_store_chef_interfaces)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,9 +7,27 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(builtin_interfaces REQUIRED)
+find_package(rosidl_default_generators REQUIRED)
+
+ament_export_dependencies(rosidl_default_runtime)
+
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
+
+set(srv_files
+  "srv/OrderService.srv"
+)
+set(action_files
+  "action/OrderService.action"
+)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  ${srv_files}
+  ${action_files}
+  DEPENDENCIES builtin_interfaces
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
