@@ -8,8 +8,25 @@ Doosan BootCamp 협동-1의 Final Project로, **Doosan Robot M0609**를 활용�
 
 <br>
 
+## 🚀 주요 기능
+- 로봇 암 제어를 통한 조리 동작 수행
+- 사용자 입력을 통한 조리 항목 선택
+- 식자재 인식 및 조작 (옵션)
+- 자동화된 조리 단계 시퀀스 실행
+
+<br>
+
 ## 🎬 시연 영상/스크린샷
 - 사용자가 이해하기 쉬운 시각 자료(.gif)
+
+<br>
+
+## 🛠 개발 환경
+- 운영 체제: Ubuntu 20.04
+- 로봇 모델: Doosan Robot m0609
+- 로봇 컨트롤러: Doosan Robot Controller SDK
+- 시뮬레이션 환경: RViz
+- 기타: ROS humble, Python 3.8
 
 <br>
 
@@ -32,25 +49,8 @@ Doosan BootCamp 협동-1의 Final Project로, **Doosan Robot M0609**를 활용�
 
 <br>
 
-## 🛠 개발 환경
-- 운영 체제: Ubuntu 20.04
-- 로봇 모델: Doosan Robot m0609
-- 로봇 컨트롤러: Doosan Robot Controller SDK
-- 시뮬레이션 환경: RViz
-- 기타: ROS humble, Python 3.8
-
-<br>
-
 ## 🧱 프로젝트 아키텍처
 (블록 다이어그램 또는 계층 구조 설명 간단히 포함)
-
-<br>
-
-## 🚀 주요 기능
-- 로봇 암 제어를 통한 조리 동작 수행
-- 사용자 입력을 통한 조리 항목 선택
-- 식자재 인식 및 조작 (옵션)
-- 자동화된 조리 단계 시퀀스 실행
 
 <br>
 
