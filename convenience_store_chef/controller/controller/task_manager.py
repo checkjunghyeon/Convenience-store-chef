@@ -87,7 +87,7 @@ class TaskManager:
                 try:
                     pos = self.stock_manager.get_next(item)
                 except ValueError as e:
-                    self.log_msg(str(e)) # , level="warn"
+                    self.log_msg(str(e), level="warning")
                     order_success = False
                     fail_items.add(item)
                     continue
@@ -118,7 +118,7 @@ class TaskManager:
 
     def step(self):
         if self.state_manager.is_error():
-            self.log_msg("⚠ 로봇 에러 상태 ➡ 작업 중단") # , level="warn"
+            self.log_msg("⚠ 로봇 에러 상태 ➡ 작업 중단", level="warning")
             return
 
         now = time.time()
