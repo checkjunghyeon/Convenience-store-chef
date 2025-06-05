@@ -172,6 +172,7 @@ class TaskManager:
 
             if task.task_type == TaskType.PUT:
                 self.execute_put_task(task)
+                self.play_sound_async(os.path.join(path, 'resource', 'order_excute.wav'))
             elif task.task_type == TaskType.TAKE:
                 self.execute_take_task(task)
                 # self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))
