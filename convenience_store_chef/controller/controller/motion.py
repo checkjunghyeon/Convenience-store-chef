@@ -10,6 +10,10 @@ from dsr_msgs2.srv import GetCurrentTcp
 from dsr_msgs2.srv import GetCurrentTool
 
 import DR_init
+#추가
+import asyncio
+import threading
+import pygame
 
 DR_init.__dsr__id = ROBOT_ID
 DR_init.__dsr__model = ROBOT_MODEL
@@ -19,6 +23,9 @@ INIT_POS = [0, 0, 90, 0, 90, 0]
 
 class MotionController:
     def __init__(self, node):
+        #추가
+        pygame.init()
+        pygame.mixer.init()
         self.node = node
         self.client = node.create_client(MoveStop, "/dsr01/motion/move_stop")
         self.tcp_client = node.create_client(GetCurrentTcp, "/dsr01/tcp/get_current_tcp")
@@ -86,6 +93,15 @@ class MotionController:
         set_tool("C3_1")
         set_tcp("GripperSA_v1")
         set_ref_coord(0)
+    def play_sound_async(self, file_path):
+        async def _play():
+            pygame.mixer.music.load(file_path)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                await asyncio.sleep(0.1)
+
+        threading.Thread(target=lambda: asyncio.run(_play())).start()
+
 
     def load_pose_data(self, filepath = "/convenience_store_chef/controller/controller/pose_data.json"):
         with open(filepath, 'r') as f:
@@ -173,6 +189,9 @@ class MotionController:
         time.sleep(0.5)
     
     def detecting(self):
+        #추가
+        path = get_package_share_directory('controller')
+        self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))       
         self.task_compliance_ctrl(stx=[100, 100, 100, 100, 100, 100])
         time.sleep(0.1)
         self.set_desired_force(fd=[0, 0, 0, 0, 0, 0], dir=[1, 1, 1, 0, 0, 0], mod=self.DR_FC_MOD_REL)
