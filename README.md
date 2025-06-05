@@ -5,18 +5,18 @@
 <br>
 
 
-## ▶️ 프로젝트 개요
+## ▶️ 전체 시나리오 흐름
 
-![order with kiosk](./media/kiosk.gif)
-![put ramen in device](./media/put_ramen.gif)
-![serve the foods](./media/serving.gif)
-
-### 🧭 전체 시나리오 흐름
 1. 사용자가 키오스크에서 음식 주문
+![order with kiosk](./media/kiosk.gif)
+
 2. **작업관리자(TaskManager)** 가 조리 작업 생성
 3. 로봇이 **전자레인지 및 라면 조리기**를 조작하여 자동 조리 수행 
+![put ramen in device](./media/put_ramen.gif)
+
 4. **서빙 위치**로 이동한 후, **사용자 터치 감지** 시 음식 전달
 5. **TTS 음성 안내**를 통한 작업 상황 알림
+![serve the foods](./media/serving.gif)
 
 - 티칭 좌표는 JSON 형태로 관리
 - 전체 과정은 자동화된 FSM 기반의 노드로 관리
