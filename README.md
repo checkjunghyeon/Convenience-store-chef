@@ -9,6 +9,8 @@
 
 ![시연 영상](./media/demo.gif)
 
+![serve the foods](./media/serving.gif)
+
 ### 🧭 전체 시나리오 흐름
 1. 사용자가 키오스크에서 음식 주문
 2. **작업관리자(TaskManager)** 가 조리 작업 생성
@@ -55,7 +57,7 @@
 <br>
 
 ## 🧱 프로젝트 아키텍처
-![](./media/demo.gif)
+![](./media/system_detail_design.png)
 
 <br>
 
