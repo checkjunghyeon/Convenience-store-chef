@@ -61,7 +61,6 @@ def register_unload_timer(timer_dict, task: Task):
     timer_dict[new_task.id] = (end_time, new_task)
 
 ####################################################################################
-path = get_package_share_directory('controller')
 
 class TaskManager:
     def __init__(self, node):
@@ -124,7 +123,7 @@ class TaskManager:
         else:
             result.success = True
             result.message = "[✓] 주문 처리 성공"
-            self.play_sound_async(os.path.join(path, 'resource', 'order_receive.wav'))
+            self.play_sound_async(os.path.join(get_package_share_directory('controller'), 'resource', 'order_receive.wav'))
 
         goal_handle.succeed()
         return result
@@ -172,10 +171,10 @@ class TaskManager:
 
             if task.task_type == TaskType.PUT:
                 self.execute_put_task(task)
-                self.play_sound_async(os.path.join(path, 'resource', 'order_excute.wav'))
+                self.play_sound_async(os.path.join(get_package_share_directory('controller'), 'resource', 'order_excute.wav'))
             elif task.task_type == TaskType.TAKE:
                 self.execute_take_task(task)
-                # self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))
+                # self.play_sound_async(os.path.join(get_package_share_directory('controller'), 'resource', 'order_complete.wav'))
             else:
                 raise ValueError(f"⚠ 알 수 없는 작업 유형: {task.task_type}")
 
