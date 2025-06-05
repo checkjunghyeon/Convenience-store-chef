@@ -7,8 +7,8 @@
 
 ## ▶️ 프로젝트 개요
 
-![시연 영상](./media/demo.gif)
-
+![order with kiosk](./media/kiosk.gif)
+![put ramen in device](./media/put_ramen.gif)
 ![serve the foods](./media/serving.gif)
 
 ### 🧭 전체 시나리오 흐름
@@ -53,11 +53,12 @@
     $ ros2 run controller tm
 ```
 3. kiosk gui로 주문할 음식 선택
+![](./media/kiosk_screen.png)
    
 <br>
 
 ## 🧱 프로젝트 아키텍처
-![](./media/system_detail_design.png)
+![](./media/system%20detail%20design.png)
 
 <br>
 
