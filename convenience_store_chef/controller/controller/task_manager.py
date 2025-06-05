@@ -110,6 +110,7 @@ class TaskManager:
                 self.task_queue.append(task)
                 feedback_msg.status = f"[✓] {item} 작업 추가됨"
                 goal_handle.publish_feedback(feedback_msg)
+                self.play_sound_async(os.path.join(get_package_share_directory('controller'), 'resource', 'order_receive.wav'))
 
         for item in ['김밥', '삼각김밥', '라면']:
             remaining = self.stock_manager.get_remaining(item)
@@ -123,7 +124,6 @@ class TaskManager:
         else:
             result.success = True
             result.message = "[✓] 주문 처리 성공"
-            self.play_sound_async(os.path.join(get_package_share_directory('controller'), 'resource', 'order_receive.wav'))
 
         goal_handle.succeed()
         return result
