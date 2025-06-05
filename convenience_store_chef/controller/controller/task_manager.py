@@ -174,7 +174,7 @@ class TaskManager:
                 self.execute_put_task(task)
             elif task.task_type == TaskType.TAKE:
                 self.execute_take_task(task)
-                self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))
+                # self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))
             else:
                 raise ValueError(f"⚠ 알 수 없는 작업 유형: {task.task_type}")
 
