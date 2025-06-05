@@ -84,6 +84,8 @@ class TaskManager:
 
         pygame.init()
         pygame.mixer.init()
+        
+        self.video_path = get_package_share_directory('controller')
     
     def execute_order(self, goal_handle):
         request = goal_handle.request
@@ -111,6 +113,7 @@ class TaskManager:
                 self.task_queue.append(task)
                 feedback_msg.status = f"[✓] {item} 작업 추가됨"
                 goal_handle.publish_feedback(feedback_msg)
+                self.play_sound_async(os.path.join(self.video_path, 'resource', 'order_receive.wav'))
 
         for item in ['김밥', '삼각김밥', '라면']:
             remaining = self.stock_manager.get_remaining(item)
@@ -124,7 +127,6 @@ class TaskManager:
         else:
             result.success = True
             result.message = "[✓] 주문 처리 성공"
-            self.play_sound_async(os.path.join(path, 'resource', 'order_receive.wav'))
 
         goal_handle.succeed()
         return result
@@ -172,10 +174,9 @@ class TaskManager:
 
             if task.task_type == TaskType.PUT:
                 self.execute_put_task(task)
-                self.play_sound_async(os.path.join(path, 'resource', 'order_excute.wav'))
+                self.play_sound_async(os.path.join(self.video_path, 'resource', 'order_excute.wav'))
             elif task.task_type == TaskType.TAKE:
                 self.execute_take_task(task)
-                # self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))
             else:
                 raise ValueError(f"⚠ 알 수 없는 작업 유형: {task.task_type}")
 
