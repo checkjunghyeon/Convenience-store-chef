@@ -12,6 +12,10 @@ from enum import Enum
 from collections import deque
 import time
 
+import asyncio
+import threading
+import pygame
+
 import DR_init
 
 DR_init.__dsr__id = ROBOT_ID
@@ -53,6 +57,7 @@ def register_unload_timer(timer_dict, task: Task):
     timer_dict[new_task.id] = (end_time, new_task)
 
 ####################################################################################
+path = get_package_share_directory('controller')
 
 class TaskManager:
     def __init__(self, node):
@@ -72,6 +77,9 @@ class TaskManager:
             '/order_service',
             execute_callback=self.execute_order,
         )
+
+        pygame.init()
+        pygame.mixer.init()
     
     def execute_order(self, goal_handle):
         request = goal_handle.request
@@ -158,9 +166,11 @@ class TaskManager:
             self.log_msg(f"{task.name}({task.device}) 시작 ➡ 로봇 상태: {self.state_manager.get_state_str()}")  # self.state_manager.state.name.lower()
 
             if task.task_type == TaskType.PUT:
+                self.play_sound_async(os.path.join(path, 'resource', 'order_receive.wav'))
                 self.execute_put_task(task)
             elif task.task_type == TaskType.TAKE:
                 self.execute_take_task(task)
+                self.play_sound_async(os.path.join(path, 'resource', 'order_complete.wav'))
             else:
                 raise ValueError(f"⚠ 알 수 없는 작업 유형: {task.task_type}")
 
@@ -215,6 +225,15 @@ class TaskManager:
         elif task.device == 'cooker':
             self.rc.pick_up_bowl()
             self.rc.serve_ramen()
+
+    def play_sound_async(self, file_path):
+        async def _play():
+            pygame.mixer.music.load(file_path)
+            pygame.mixer.music.play()
+            while pygame.mixer.music.get_busy():
+                await asyncio.sleep(0.1)
+
+        threading.Thread(target=lambda: asyncio.run(_play())).start()
 
     def log_msg(self, msg, level='info'):
         getattr(self.node.get_logger(), level)(msg)
