@@ -124,6 +124,7 @@ class TaskManager:
         else:
             result.success = True
             result.message = "[✓] 주문 처리 성공"
+            self.play_sound_async(os.path.join(path, 'resource', 'order_receive.wav'))
 
         goal_handle.succeed()
         return result
@@ -170,7 +171,6 @@ class TaskManager:
             self.log_msg(f"{task.name}({task.device}) 시작 ➡ 로봇 상태: {self.state_manager.get_state_str()}")  # self.state_manager.state.name.lower()
 
             if task.task_type == TaskType.PUT:
-                self.play_sound_async(os.path.join(path, 'resource', 'order_receive.wav'))
                 self.execute_put_task(task)
             elif task.task_type == TaskType.TAKE:
                 self.execute_take_task(task)
