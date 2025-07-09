@@ -35,8 +35,9 @@
 ## 🧩 설치 및 실행 방법
 #### 프로젝트 설치 
 ```
+$ mkdir -p ~/ros2_ws/src
+$ cd ~/ros2_ws/src
 $ git clone https://github.com/afleejw/Convenience-store-chef.git
-$ cd Convenience-store-chef
 $ git clone https://github.com/ROKEY-SPARK/DoosanBootcamInt1.git
 $ colcon build --symlink-install
 ```
