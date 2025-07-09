@@ -35,22 +35,24 @@
 ## 🧩 설치 및 실행 방법
 #### 프로젝트 설치 
 ```
-    $ git clone https://github.com/afleejw/Convenience-store-chef.git
-    $ cd Convenience-store-chef
+$ git clone https://github.com/afleejw/Convenience-store-chef.git
+$ cd Convenience-store-chef
+$ git clone https://github.com/ROKEY-SPARK/DoosanBootcamInt1.git
+$ colcon build --symlink-install
 ```
 
 #### 실행 순서
 1. 로봇과 pc 랜선 연견
 2. ROS 노드 실행
 ```
-    # Terminal 1
-    $ ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mod=real host=192.168.1.100 port:=12345 model:=m0609
+# Terminal 1
+$ ros2 launch dsr_bringup2 dsr_bringup2_rviz.launch.py mod=real host=192.168.1.100 port:=12345 model:=m0609
 
-    # Terminal 2
-    $ ros2 run kiosk kiosk
+# Terminal 2
+$ ros2 run kiosk kiosk
 
-    # Terminal 3
-    $ ros2 run controller tm
+# Terminal 3
+$ ros2 run controller tm
 ```
 3. kiosk gui로 주문할 음식 선택
 ![](./media/kiosk_screen.png)
